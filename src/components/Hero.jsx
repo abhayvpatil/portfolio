@@ -47,7 +47,7 @@ const Hero = () => {
                   View Projects <FiArrowRight className="ml-2" />
                 </button>
               </Link>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/updatedResumeNew.pdf" target="_blank" rel="noopener noreferrer">
                 <button className="flex items-center px-8 py-3 rounded-full glass hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white font-medium transition-all shadow-md transform hover:-translate-y-1">
                   Download Resume <FiDownload className="ml-2" />
                 </button>
@@ -67,13 +67,13 @@ const Hero = () => {
             className="hidden lg:flex justify-center items-center relative"
           >
             {/* Visual element representing a dev profile in 3D-ish style */}
-            <div className="w-80 h-80 relative">
+            <div className="w-96 h-96 relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-full blur-3xl opacity-30 animate-blob"></div>
               <div className="relative glass w-full h-full rounded-2xl flex items-center justify-center border border-white/40 dark:border-white/10 shadow-2xl overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent dark:from-white/5 opacity-50 z-0 pointer-events-none"></div>
                 <div className="z-10 text-center flex flex-col items-center p-8">
-                  <div className="w-24 h-24 bg-gray-200 dark:bg-gray-800 rounded-full mb-6 flex items-center justify-center text-4xl shadow-inner border-4 border-white dark:border-gray-700">
-                    👨‍💻
+                  <div className="w-56 h-56 rounded-full mb-6 overflow-hidden shadow-inner border-4 border-white dark:border-gray-700 bg-gray-200 dark:bg-gray-800">
+                    <img src="/profile.jpeg" alt="Abhay Patil" className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="font-mono text-sm text-gray-800 dark:text-gray-300 space-y-2 w-full">
                     <p><span className="text-pink-500">const</span> <span className="text-blue-500">dev</span> = {"{"}</p>

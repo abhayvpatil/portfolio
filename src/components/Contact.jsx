@@ -5,20 +5,48 @@ import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiSend } from 'react-icons/fi';
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
+    setIsSubmitting(true);
     setStatus('Sending...');
-    setTimeout(() => {
-      setStatus('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus(''), 3000);
-    }, 1500);
+
+    // Access Key should be added here
+    const accessKey = "d46c9c19-da40-43ed-ac49-256cdc33425f";
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('Failed to send message. Please try again later.');
+      }
+    } catch (error) {
+      setStatus('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setStatus(''), 5000);
+    }
   };
 
   return (
@@ -38,7 +66,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          
+
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -58,7 +86,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Email Me</p>
-                <a href="mailto:abhaypatil@example.com" className="text-lg text-gray-900 dark:text-white hover:text-blue-500 font-semibold transition-colors">abhaypatil@example.com</a>
+                <a href="mailto:abhayvpatil011@example.com" className="text-lg text-gray-900 dark:text-white hover:text-blue-500 font-semibold transition-colors">abhaypatil@gmail.com</a>
               </div>
             </div>
 
@@ -68,13 +96,13 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">LinkedIn</p>
-                <a 
-                  href="https://www.linkedin.com/in/abhay-patil-8601a0251" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/abhay-patil-8601a0251"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-lg text-gray-900 dark:text-white hover:text-blue-500 font-semibold transition-colors"
                 >
-                  abhay-patil-8601a0251
+                  abhay-patil-linkedin
                 </a>
               </div>
             </div>
@@ -85,7 +113,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Location</p>
-                <p className="text-lg text-gray-900 dark:text-white font-semibold">Maharashtra, India</p>
+                <p className="text-lg text-gray-900 dark:text-white font-semibold">Pune, Maharashtra, India</p>
               </div>
             </div>
 
@@ -123,7 +151,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                  placeholder="john@example.com"
+                  placeholder="john@gmail.com"
                 />
               </div>
 
@@ -143,7 +171,11 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full flex justify-center items-center py-4 px-6 rounded-xl text-white font-medium bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/30 transform hover:-translate-y-1 transition-all"
+                disabled={isSubmitting}
+                className={`w-full flex justify-center items-center py-4 px-6 rounded-xl text-white font-medium ${isSubmitting
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/30 transform hover:-translate-y-1'
+                  } transition-all`}
               >
                 {status || (
                   <>

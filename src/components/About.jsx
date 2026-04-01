@@ -28,7 +28,7 @@ const About = () => {
           >
             <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100 border-b border-gray-200 dark:border-gray-700 pb-4">Personal Details</h3>
             <ul className="space-y-4 text-lg">
-              <li className="flex"><span className="font-medium w-40 text-gray-500 dark:text-gray-400">Date of Birth:</span> <span className="text-gray-900 dark:text-white">11/02/2002</span></li>
+              <li className="flex"><span className="font-medium w-40 text-gray-500 dark:text-gray-400">Date of Birth:</span> <span className="text-gray-900 dark:text-white">11-February-2002</span></li>
               <li className="flex"><span className="font-medium w-40 text-gray-500 dark:text-gray-400">Gender:</span> <span className="text-gray-900 dark:text-white">Male</span></li>
               <li className="flex"><span className="font-medium w-40 text-gray-500 dark:text-gray-400">Nationality:</span> <span className="text-gray-900 dark:text-white">Indian</span></li>
               <li className="flex"><span className="font-medium w-40 text-gray-500 dark:text-gray-400">Languages:</span> <span className="text-gray-900 dark:text-white">English, Hindi, Marathi</span></li>
@@ -47,7 +47,7 @@ const About = () => {
 
               <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100 relative z-10">Professional Summary</h3>
               <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 relative z-10 italic">
-                "Computer Engineering graduate with strong knowledge of full-stack web development using Java, Spring Boot, React, and MySQL. Possesses sound knowledge of Artificial Intelligence and Cybersecurity concepts, with a passion for building secure and scalable web applications. Interested in learning modern technologies, cloud computing, and solving real-world problems through innovative software solutions."
+                "Computer Engineering graduate with strong knowledge of full-stack web development using Java, Spring Boot, React, and MySQL. Possesses sound knowledge of Artificial Intelligence. Interested in learning modern technologies, cloud computing, cyber security and solving real-world problems."
               </p>
             </div>
           </motion.div>

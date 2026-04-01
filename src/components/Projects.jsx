@@ -23,7 +23,7 @@ const projectsData = [
 const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ const Projects = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projectsData.map((project, index) => (
             <motion.div
               key={index}
@@ -47,18 +47,19 @@ const Projects = () => {
               viewport={{ once: true }}
               className="group glass rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full"
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-blue-600 mix-blend-multiply opacity-20 group-hover:opacity-0 transition-opacity duration-300 z-10"></div>
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
 
-              <div className="p-8 flex-grow flex flex-col">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6 flex-grow">{project.description}</p>
+              <div className="p-5 flex-grow flex flex-col">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((tech, i) => (
@@ -68,7 +69,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex justify-between items-center mt-auto border-t border-gray-200 dark:border-gray-800 pt-6">
+                <div className="flex justify-between items-center mt-auto border-t border-gray-200 dark:border-gray-800 pt-4">
                   <a
                     href={project.github}
                     target="_blank"

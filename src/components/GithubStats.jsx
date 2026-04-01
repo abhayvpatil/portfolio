@@ -39,10 +39,11 @@ const GithubStats = () => {
               <img 
                 src={`https://ghchart.rshah.org/3b82f6/${realGithubUser}`} 
                 alt="GitHub Contributions" 
+                loading="lazy"
                 className="min-w-[700px] w-full object-contain filter dark:invert dark:hue-rotate-180"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = "https://ghchart.rshah.org/3b82f6/torvalds"; // fallback for visual purposes if no user
+                  e.target.style.display = 'none';
                 }}
               />
             </div>
@@ -57,10 +58,11 @@ const GithubStats = () => {
               className="flex justify-center"
             >
                <img 
-                src={`https://github-readme-stats.vercel.app/api?username=${realGithubUser}&show_icons=true&theme=transparent&hide_border=true&title_color=3b82f6&text_color=6b7280&icon_color=8b5cf6`} 
+                src={`https://github-readme-stats-eight-theta.vercel.app/api?username=${realGithubUser}&show_icons=true&theme=transparent&hide_border=true&title_color=3b82f6&text_color=6b7280&icon_color=8b5cf6`} 
                 alt="GitHub Stats" 
+                loading="lazy"
                 className="w-full glass rounded-3xl shadow-lg border border-gray-200 dark:border-gray-800"
-                onError={(e) => {e.target.src = "https://github-readme-stats.vercel.app/api?username=torvalds&show_icons=true&theme=transparent&hide_border=true&title_color=3b82f6"; }} // fallback
+                onError={(e) => { e.target.style.display = 'none'; }}
                />
              </motion.div>
 
@@ -72,10 +74,11 @@ const GithubStats = () => {
               className="flex justify-center"
             >
                <img 
-                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${realGithubUser}&layout=compact&theme=transparent&hide_border=true&title_color=3b82f6&text_color=6b7280`} 
+                src={`https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${realGithubUser}&layout=compact&theme=transparent&hide_border=true&title_color=3b82f6&text_color=6b7280`} 
                 alt="Top Languages" 
+                loading="lazy"
                 className="w-full glass rounded-3xl shadow-lg border border-gray-200 dark:border-gray-800"
-                onError={(e) => {e.target.src = "https://github-readme-stats.vercel.app/api/top-langs/?username=torvalds&layout=compact&theme=transparent&hide_border=true&title_color=3b82f6"; }} // fallback
+                onError={(e) => { e.target.style.display = 'none'; }}
                />
              </motion.div>
           </div>
